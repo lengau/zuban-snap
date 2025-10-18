@@ -1,6 +1,7 @@
 name: zuban # you probably want to 'snapcraft register <name>'
-base: core24 # the base snap is the execution environment for this snap
-version: '0.1.1'
+base: core26
+build-base: devel
+version: git
 summary: The Python Language Server for Professionals
 description: |
   Zuban is a high-performance Python Language Server and type checker implemented in
@@ -32,6 +33,5 @@ parts:
   zuban:
     plugin: rust
     source-type: git
-    source-tag: v$SNAPCRAFT_VERSION
     source: https://github.com/zubanls/zuban
 
