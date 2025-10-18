@@ -1,0 +1,37 @@
+name: zuban # you probably want to 'snapcraft register <name>'
+base: core24 # the base snap is the execution environment for this snap
+version: '0.1.1'
+summary: The Python Language Server for Professionals
+description: |
+  Zuban is a high-performance Python Language Server and type checker implemented in
+  Rust, by the author of Jedi. Zuban is 20–200× faster than Mypy, while using roughly
+  half the memory and CPU compared to Ty and Pyrefly. It offers both a PyRight-like
+  mode and a Mypy-compatible mode, which behaves just like Mypy; supporting the same
+  config files, command-line flags, and error messages.
+
+  Most important LSP features are supported. Features include diagnostics, completions,
+  goto, references, rename, hover and document highlights.
+
+platforms:
+  amd64:
+  arm64:
+  riscv64:
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
+license: AGPL-3.0
+
+apps:
+  zuban:
+    command: zuban
+  zmypy:
+    command: zmypy
+  zubanls:
+    command: zubanls
+
+parts:
+  zuban:
+    plugin: rust
+    source-type: git
+    source-tag: v$SNAPCRAFT_VERSION
+    source: https://github.com/zubanls/zuban
+
