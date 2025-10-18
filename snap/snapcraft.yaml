@@ -24,10 +24,19 @@ license: AGPL-3.0
 apps:
   zuban:
     command: zuban
+    plugs:
+      - home
+      - removable-media
   zmypy:
     command: zmypy
+    plugs:
+      - home
+      - removable-media
   zubanls:
     command: zubanls
+    plugs:
+      - home
+      - removable-media
 
 parts:
   zuban:
