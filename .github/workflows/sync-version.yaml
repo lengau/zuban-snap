@@ -23,7 +23,7 @@ jobs:
       - name: 🔄 Sync version with upstream
         uses: snapcrafters/ci/sync-version@main
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
           branch: ${{ github.ref }}
           update-script: |
             VERSION=$(gh api repos/zubanls/zuban/tags --jq .[0].name | tr -d "v")
